@@ -5,6 +5,8 @@ Este repositório contém a estrutura de uma aplicação modular projetada para 
 ---
 
 ## Estrutura do Sistema
+![image](https://github.com/user-attachments/assets/2d0b54b8-1000-4f43-a6c0-92bd616447a8)
+
 
 ### 1. **Core**
 O módulo **Core** é o núcleo do sistema, responsável pelas funcionalidades base que suportam a aplicação. Ele é dividido em:
