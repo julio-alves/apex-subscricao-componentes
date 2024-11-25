@@ -1,0 +1,26 @@
+---
+- # ====== Breadcrumb Template: Breadcrumb =====================
+  id: 7053592904247756
+  identification: 
+    name: Breadcrumb
+    identifier: BREADCRUMB
+    class: Breadcrumb
+
+  subscription: 
+    master: 
+      app: 184279 # CORE
+      referenced-id: 204933367062295074742 # Breadcrumb
+
+  advanced: 
+    translatable: false
+
+  attributes: 
+    start-with: Parent to Leaf (breadcrumb style)
+
+  templates: 
+    before-first: '<ul class="t-Breadcrumb #COMPONENT_CSS_CLASSES#">'
+    current-page: <li class="t-Breadcrumb-item is-active" aria-current="page"><h1 class="t-Breadcrumb-label">#NAME#</h1></li>
+    non-current-page: <li class="t-Breadcrumb-item"><a href="#LINK#" class="t-Breadcrumb-label">#NAME#</a></li>
+    after-last: </ul>
+    maximum-levels: 6
+

@@ -1,0 +1,218 @@
+---
+- # ====== List of Values: LOV_OBJETO_SISTEMA ==================
+  id: 363681034765998547
+  identification: 
+    name: LOV_OBJETO_SISTEMA
+
+  subscription: 
+    master: 
+      app: 184279 # CORE
+      referenced-id: 82355741055993160205 # LOV_OBJETO_SISTEMA
+
+    version-number: 15590240045898
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: |
+      SELECT a.*
+           , b.desc_objeto_sistema descricao_grupo
+        FROM core_objeto_sistema a
+        LEFT JOIN core_objeto_sistema b ON (a.id_objeto_sistema = b.id_objeto_sistema_pai)
+
+  column-mapping: 
+    return: ID_OBJETO_SISTEMA
+    display: DESC_OBJETO_SISTEMA
+    default-sort: DESCRICAO_GRUPO
+    sort-direction: Ascending (Nulls Last)
+    group: DESCRICAO_GRUPO
+    group-sort-direction: Ascending (Nulls Last)
+    icon: ICONE
+
+  columns: 
+  - # ====== Column: ID_OBJETO_SISTEMA ===========================
+    id: 363681261288998550
+    identification: 
+      column-name: ID_OBJETO_SISTEMA
+      show: false
+
+    layout: 
+      sequence: 10
+
+    source: 
+      data-type: NUMBER
+
+    advanced: 
+      searchable: false
+
+  - # ====== Column: DESC_OBJETO_SISTEMA =========================
+    id: 363681695656998550
+    identification: 
+      column-name: DESC_OBJETO_SISTEMA
+      show: true
+
+    heading: 
+      heading: Descrição objeto
+
+    layout: 
+      sequence: 20
+
+    source: 
+      data-type: VARCHAR2
+
+    advanced: 
+      searchable: true
+
+  - # ====== Column: DESCRICAO_GRUPO =============================
+    id: 363682112612998550
+    identification: 
+      column-name: DESCRICAO_GRUPO
+      show: true
+
+    heading: 
+      heading: Grupo
+
+    layout: 
+      sequence: 40
+
+    source: 
+      data-type: VARCHAR2
+
+    advanced: 
+      searchable: true
+
+  - # ====== Column: GRUPO_APP ===================================
+    id: 363682507344998551
+    identification: 
+      column-name: GRUPO_APP
+      show: true
+
+    heading: 
+      heading: Sistema
+
+    layout: 
+      sequence: 30
+
+    source: 
+      data-type: VARCHAR2
+
+    advanced: 
+      searchable: true
+
+  - # ====== Column: ICONE =======================================
+    id: 363682852121998551
+    identification: 
+      column-name: ICONE
+      show: true
+
+    heading: 
+      heading: Ícone
+
+    layout: 
+      sequence: 10
+
+    source: 
+      data-type: VARCHAR2
+
+    advanced: 
+      searchable: true
+
+- # ====== List of Values: LOV_USUARIOS ========================
+  id: 363683222368998551
+  identification: 
+    name: LOV_USUARIOS
+
+  subscription: 
+    master: 
+      app: 184279 # CORE
+      referenced-id: 82352874499129139424 # LOV_USUARIOS
+
+    version-number: 15590239292727
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: |
+      SELECT id_usuario
+           , nome
+           , email
+           , nome || '(' || email || ')' descricao
+        FROM core_usuarios
+       WHERE status = 'Y'
+
+  column-mapping: 
+    return: ID_USUARIO
+    display: DESCRICAO
+    default-sort: NOME
+    sort-direction: Ascending (Nulls Last)
+
+  columns: 
+  - # ====== Column: ID_USUARIO ==================================
+    id: 363683557561998551
+    identification: 
+      column-name: ID_USUARIO
+      show: false
+
+    layout: 
+      sequence: 10
+
+    source: 
+      data-type: NUMBER
+
+    advanced: 
+      searchable: false
+
+  - # ====== Column: NOME ========================================
+    id: 363683976715998551
+    identification: 
+      column-name: NOME
+      show: true
+
+    heading: 
+      heading: Nome
+
+    layout: 
+      sequence: 20
+
+    source: 
+      data-type: VARCHAR2
+
+    advanced: 
+      searchable: true
+
+  - # ====== Column: EMAIL =======================================
+    id: 363684437426998552
+    identification: 
+      column-name: EMAIL
+      show: true
+
+    heading: 
+      heading: Email
+
+    layout: 
+      sequence: 30
+
+    source: 
+      data-type: VARCHAR2
+
+    advanced: 
+      searchable: true
+
+  - # ====== Column: DESCRICAO ===================================
+    id: 363684809250998552
+    identification: 
+      column-name: DESCRICAO
+      show: false
+
+    heading: 
+      heading: Descrição
+
+    layout: 
+      sequence: 10
+
+    source: 
+      data-type: VARCHAR2
+
+    advanced: 
+      searchable: false
+

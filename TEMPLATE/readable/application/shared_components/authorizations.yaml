@@ -1,0 +1,21 @@
+---
+- # ====== Authorization: Direitos de Administração ============
+  id: 204933482714513074934
+  identification: 
+    name: Direitos de Administração
+
+  subscription: 
+    version-number: 1
+
+  authorization-scheme: 
+    type: PL/SQL Function Returning Boolean
+
+  settings: 
+    pl/sql-function-body: return true;
+
+  server-cache: 
+    evaluation-point: Once per Page View
+
+  error: 
+    error-message: Privilégios insuficientes; o usuário não é um Administrador
+
