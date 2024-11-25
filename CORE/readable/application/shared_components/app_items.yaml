@@ -1,0 +1,14 @@
+---
+- # ====== Application Item: P_ID_OBJETO_SISTEMA ===============
+  id: 124786845640094145772
+  identification: 
+    name: P_ID_OBJETO_SISTEMA
+    scope: Application
+
+  security: 
+    session-state-protection: Checksum Required - Session Level
+    escape-special-characters: true
+
+  subscription: 
+    version-number: 15590248395913
+

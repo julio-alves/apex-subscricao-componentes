@@ -1,0 +1,21 @@
+---
+- # ====== Page Group: Configuração ============================
+  id: 66016289318620714722
+  identification: 
+    name: Configuração
+
+- # ====== Page Group: Processo ================================
+  id: 66016319379720718382
+  identification: 
+    name: Processo
+
+- # ====== Page Group: Cadastro ================================
+  id: 66016429141757205895
+  identification: 
+    name: Cadastro
+
+- # ====== Page Group: Administração ===========================
+  id: 122958112711466541543
+  identification: 
+    name: Administração
+

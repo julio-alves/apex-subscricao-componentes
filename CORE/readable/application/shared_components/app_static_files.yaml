@@ -1,0 +1,55 @@
+---
+- # ====== Static Application File: icons/app-icon-32.png ======
+  id: 122958109796922541535
+  identification: 
+    file-name: icons/app-icon-32.png
+
+  attributes: 
+    mime-type: image/png
+    file-character-set: Unicode UTF-8
+
+- # ====== Static Application File: icons/app-icon-144-rounded.p
+  id: 122958110156276541539
+  identification: 
+    file-name: icons/app-icon-144-rounded.png
+
+  attributes: 
+    mime-type: image/png
+    file-character-set: Unicode UTF-8
+
+- # ====== Static Application File: icons/app-icon-192.png =====
+  id: 122958110376241541540
+  identification: 
+    file-name: icons/app-icon-192.png
+
+  attributes: 
+    mime-type: image/png
+    file-character-set: Unicode UTF-8
+
+- # ====== Static Application File: icons/app-icon-256-rounded.p
+  id: 122958110720726541540
+  identification: 
+    file-name: icons/app-icon-256-rounded.png
+
+  attributes: 
+    mime-type: image/png
+    file-character-set: Unicode UTF-8
+
+- # ====== Static Application File: icons/app-icon-512.png =====
+  id: 122958110988880541541
+  identification: 
+    file-name: icons/app-icon-512.png
+
+  attributes: 
+    mime-type: image/png
+    file-character-set: Unicode UTF-8
+
+- # ====== Static Application File: 20231118_123115374_iOS.jpg =
+  id: 123285881707827737305
+  identification: 
+    file-name: 20231118_123115374_iOS.jpg
+
+  attributes: 
+    mime-type: image/jpeg
+    file-character-set: Unicode UTF-8
+
