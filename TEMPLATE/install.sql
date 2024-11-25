@@ -117,4 +117,5 @@ prompt --install
 @@application/pages/page_00000.sql
 @@application/pages/page_00001.sql
 @@application/pages/page_09999.sql
+@@application/shared_components/logic/component_groups/novos_componentes.sql
 @@application/end_environment.sql

@@ -122,6 +122,7 @@ prompt --install
 @@application/pages/page_00020.sql
 @@application/pages/page_00025.sql
 @@application/pages/page_09999.sql
+@@application/shared_components/logic/component_groups/novos_componentes.sql
 @@application/deployment/definition.sql
 @@application/deployment/checks.sql
 @@application/deployment/buildoptions.sql

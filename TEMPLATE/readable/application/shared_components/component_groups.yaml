@@ -1,0 +1,13 @@
+---
+- # ====== Component Group: Novos componentes ==================
+  id: 421406560872606480
+  identification: 
+    name: Novos componentes
+
+  subscription: 
+    master: 
+      app: 184279 # CORE
+      referenced-id: 82413816229689507191 # Novos componentes
+
+    version-number: 15590265189486
+
