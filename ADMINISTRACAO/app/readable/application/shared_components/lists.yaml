@@ -1,0 +1,266 @@
+---
+- # ====== List: Menu Navegação Custom =========================
+  id: 163981445269269241859
+  identification: 
+    name: Menu Navegação Custom
+
+  subscription: 
+    master: 
+      app: 184279 # CORE
+      referenced-id: 81988653409984036594 # Menu Navegação Custom
+
+    version-number: 15590128070364
+
+  source: 
+    type: SQL Query
+    sql-query: |
+      SELECT LEVEL
+            ,sos.desc_objeto_sistema AS label
+            ,case 
+                when sos.cod_pagina IS NOT NULL THEN
+                  APEX_PAGE.GET_URL( p_application => sos.cod_app_id, P_PAGE => sos.cod_pagina , P_ITEMS => 'P_ID_OBJETO_SISTEMA', P_VALUES => sos.id_objeto_sistema )
+             END AS target
+            ,CASE sos.id_objeto_sistema WHEN nv('P_ID_OBJETO_SISTEMA') THEN 'Y' ELSE 'N' END AS is_current
+            ,sos.icone AS icon
+        FROM core_objeto_sistema sos
+       WHERE cod_app_id = :app_alias 
+          OR cod_app_id = :app_id
+          OR grupo_app = :grupo_app
+       START WITH sos.id_objeto_sistema_pai IS NULL
+      CONNECT BY PRIOR sos.id_objeto_sistema = sos.id_objeto_sistema_pai
+       ORDER SIBLINGS BY sos.sequencia, sos.id_objeto_sistema_pai NULLS LAST
+
+- # ====== List: Menu de Navegação =============================
+  id: 286925981325759279889
+  identification: 
+    name: Menu de Navegação
+
+  subscription: 
+    version-number: 1
+
+  source: 
+    type: Static Values
+
+  entries: 
+  - # ====== Entry: Início 01 ====================================
+    id: 226491440524554655075
+    label: 
+      label: Início 01
+
+    icon: 
+      image/icon-css-classes: fa-home
+
+    layout: 
+      sequence: 20
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+        page: 1 # Início
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Início 02 ====================================
+    id: 229803772761427432393
+    label: 
+      label: Início 02
+
+    icon: 
+      image/icon-css-classes: fa-home
+
+    layout: 
+      sequence: 30
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+        page: 1 # Início
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Início 03 ====================================
+    id: 229803773220842432393
+    label: 
+      label: Início 03
+
+    icon: 
+      image/icon-css-classes: fa-home
+
+    layout: 
+      sequence: 40
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+        page: 1 # Início
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+  - # ====== Entry: Início =======================================
+    id: 286926281667397280224
+    label: 
+      label: Início
+
+    icon: 
+      image/icon-css-classes: fa-home
+
+    layout: 
+      sequence: 10
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+        page: 1 # Início
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+- # ====== List: Barra de Navegação ============================
+  id: 286926270788927280180
+  identification: 
+    name: Barra de Navegação
+
+  subscription: 
+    master: 
+      app: 184279 # CORE
+      referenced-id: 204933478929642074915 # Barra de Navegação
+
+    version-number: 15590261290928
+
+  source: 
+    type: Static Values
+
+  entries: 
+  - # ====== Entry: &nbsp; =======================================
+    id: 52009878246074170
+    label: 
+      label: '&nbsp;'
+
+    icon: 
+      image/icon-css-classes: fa-home
+
+    layout: 
+      sequence: 0
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: 
+        url: 'f?p=APPS:HOME:&APP_SESSION.::&DEBUG.:::'
+        app: APPS
+        page: HOME
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+    server-side-condition: 
+      type: Expression
+      language: PL/SQL
+      pl/sql-expression: v('APP_ALIAS') != 'APPS'
+
+  - # ====== Entry: &APP_USER. ===================================
+    id: 52010250944074171
+    label: 
+      label: '&APP_USER.'
+
+    icon: 
+      image/icon-css-classes: photo-user
+
+    layout: 
+      sequence: 10
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: '#'
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+      2.: has-username
+
+  - # ====== Entry: --- ==========================================
+    id: 52010677828074171
+    label: 
+      label: '---'
+
+    layout: 
+      sequence: 20
+      parent-entry: '&APP_USER.' # 52010250944074171
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: separator
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+    server-side-condition: 
+      type: User is Authenticated (not public)
+
+  - # ====== Entry: Sair =========================================
+    id: 52011044086074171
+    label: 
+      label: Sair
+
+    icon: 
+      image/icon-css-classes: fa-sign-out
+
+    layout: 
+      sequence: 30
+      parent-entry: '&APP_USER.' # 52010250944074171
+
+    is-current: 
+      type: Target Page
+
+    link: 
+      target: '&LOGOUT_URL.'
+
+    click-counting: 
+      count-clicks: false
+
+    user-defined-attributes: 
+      translatable: false
+
+    server-side-condition: 
+      type: User is Authenticated (not public)
+

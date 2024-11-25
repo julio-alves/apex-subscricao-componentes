@@ -1,0 +1,35 @@
+---
+- # ====== Breadcrumb: Breadcrumb ==============================
+  id: 4277645746162525
+  identification: 
+    name: Breadcrumb
+
+  entries: 
+  - # ====== Entry: Usuários =====================================
+    id: 5574831854174392
+    identification: 
+      name: Usuários
+      page-number: 10
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:10:&SESSION.::&DEBUG.:::'
+        page: 10 # Usuários
+
+  - # ====== Entry: Objeto de Sistema ============================
+    id: 27392912315870509
+    identification: 
+      name: Objeto de Sistema
+      page-number: 20
+
+    execution: 
+      sequence: 10
+
+    link: 
+      target: 
+        url: 'f?p=&APP_ID.:20:&APP_SESSION.::&DEBUG.:::'
+        page: 20 # Objeto de Sistema
+
