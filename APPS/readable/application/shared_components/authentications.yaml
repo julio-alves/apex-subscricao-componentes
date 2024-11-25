@@ -1,0 +1,31 @@
+---
+- # ====== Authentication: Controle de Acesso - Custom =========
+  id: 286925980494104279884
+  identification: 
+    name: Controle de Acesso - Custom
+
+  subscription: 
+    master: 
+      app: 184279 # CORE
+      referenced-id: 204933188634819074619 # Controle de Acesso - Custom
+
+    version-number: 15590121630070
+
+  settings: 
+    type: Custom
+    authentication-function-name: PKG_CORE_CONTROLE_ACESSO.authentication
+    enable-legacy-authentication-attributes: false
+
+  session-not-valid: 
+    redirect-to: Login Page
+
+  login-processing: 
+    switch-in-session: true
+
+  session-sharing: 
+    cookie-name: AUTH_COOKIE
+    secure: false
+
+  real-application-security: 
+    ras-mode: Disabled
+

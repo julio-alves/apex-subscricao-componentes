@@ -1,0 +1,183 @@
+---
+# ====== Page: Início ========================================
+id: 1
+identification: 
+  name: Início
+  alias: HOME
+  title: '&APP_NAME.'
+
+appearance: 
+  page-mode: Normal
+  page-template: Theme Default
+  template-options: 
+  - '#DEFAULT#'
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: APPS ========================================
+  id: 45664696191128717
+  identification: 
+    name: APPS
+    type: Cards
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: |
+      SELECT aa.application_id
+            ,aa.application_name
+            ,(SELECT file_content
+                FROM apex_application_static_files
+               WHERE application_id = aa.application_id 
+                 AND file_name LIKE '%icon%512%') icon_content
+            ,apex_util.prepare_url
+              (p_url => REPLACE(REPLACE(REPLACE(REPLACE(aa.home_link,CHR(38)||'APP_ID'||CHR(46),aa.application_id),CHR(38)||'APP_PRINCIPAL'||CHR(46),aa.application_id),CHR(38)||'APP_SESSION'||CHR(46),v('SESSION')),CHR(38)||'DEBUG'||CHR(46),'')
+              ,p_checksum_type => 'SESSION') home_link
+        FROM apex_applications aa
+        where application_name NOT IN ('CORE', 'TEMPLATE', 'Apps')
+          and workspace = 'APEXBSB2024'
+      ORDER BY application_name
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Cards Container
+    template-options: 
+    - '#DEFAULT#'
+    - t-CardsRegion--styleB
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 45664591789128716
+    appearance: 
+      layout: Grid
+      grid-columns: Auto
+
+    card: 
+      primary-key-column-1: APPLICATION_ID
+
+    title: 
+      advanced-formatting: false
+      column: APPLICATION_NAME
+
+    subtitle: 
+      advanced-formatting: false
+
+    body: 
+      advanced-formatting: false
+
+    secondary-body: 
+      advanced-formatting: false
+
+    icon-and-badge: 
+      icon-source: Image BLOB Column
+      image-column: ICON_CONTENT
+      icon-position: Start
+
+    media: 
+      advanced-formatting: false
+      source: No Media
+
+    performance: 
+      lazy-loading: false
+
+    pagination: 
+      type: Scroll
+      show-total-count: false
+
+    actions: 
+    - # ====== Action: Full Card ===================================
+      id: 811094609055078
+      identification: 
+        type: Full Card
+
+      layout: 
+        sequence: 10
+
+      link: 
+        type: Redirect to URL
+        target: '&HOME_LINK.'
+
+- # ====== Region: &APP_NAME. ==================================
+  id: 286926282549375280226
+  identification: 
+    name: '&APP_NAME.'
+    type: Static Content
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: REGION_POSITION_01
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Hero
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  image: 
+    file-url: '#APP_FILES#icons/app-icon-512.png'
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: HTML
+      expand-shortcuts: false
+
